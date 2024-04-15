@@ -9,7 +9,7 @@ st.title("ChatPDF")
 st.write("---")
 
 ###파일업로드 ( https://docs.streamlit.io/develop/api-reference/widgets/st.file_uploader )
-uploaded_file = st.file_uploader("PDF 파일을 올려주세요", type=['pdf']))
+uploaded_file = st.file_uploader("PDF 파일을 올려주세요", type="pdf")
 st.write("---")
 
 ###파일 업로드되면 동작하는 함수
