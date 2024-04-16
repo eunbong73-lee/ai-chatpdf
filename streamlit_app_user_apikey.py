@@ -67,4 +67,4 @@ if uploaded_file is not None:
             llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=1, openai_api_key=openai_key)
             qa_chain = RetrievalQA.from_chain_type(llm, retriever=vectordb.as_retriever())
             result = qa_chain ({"query":question})
-            st.write(result.result)
+            st.write(result["result"])
