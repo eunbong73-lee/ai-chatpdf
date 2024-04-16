@@ -60,11 +60,11 @@ if uploaded_file is not None:
     st.header("PDF에게 질문해 보세요 !!!")
     question = st.text_input('질문을 입력하세요')
     
-    if st.button('질문하기'):
+    if st.button('질문하기') or question:
         with st.spinner('답변 작성 중'):
             from langchain.chains import RetrievalQA
             from langchain_openai import ChatOpenAI
             llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=1, openai_api_key=openai_key)
             qa_chain = RetrievalQA.from_chain_type(llm, retriever=vectordb.as_retriever())
             result = qa_chain ({"query":question})
-            st.write(result)
+            st.write(result.result)
